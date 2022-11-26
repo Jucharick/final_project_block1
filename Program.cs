@@ -31,7 +31,7 @@ string[] FillArrayString(string[] array)
 
 void PrintArray(string[] array)
 {
-    for (int i = 0; i < array.Length; i++)
+    for (int i = 0; i < array.Length - 1; i++)
     {
         Console.Write($"{array[i]} ");
     }
@@ -43,7 +43,7 @@ string[] StringThreeCharFromArray(string[] array)
     string[] result = new string[array.Length];
     int length = 3;
     int count = 0;
-    for (int i = 0; i < array.Length; i++)
+    for (int i = 0; i < array.Length - 1; i++)
     {
         if (array[i].Length <= length) 
         {
