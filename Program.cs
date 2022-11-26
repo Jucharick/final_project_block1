@@ -9,3 +9,29 @@
 // [“1234”, “1567”, “-2”, “computer science”] → [“-2”]
 // [“Russia”, “Denmark”, “Kazan”] → []
 
+Console.WriteLine("Введите длину массива:");
+int n = int.Parse(Console.ReadLine());
+string [] array = new string [n]; // {"Hello", "06569yigtog", ":-)", "Hi", "xxx", ""};
+array = FillArrayString (array);
+PrintArray(array);
+
+
+string[] FillArrayString (string [] array)
+{
+    for (int i = 0; i < array.Length - 1; i++)
+    {
+        Console.WriteLine($"Введите элемент № {i+1}");
+        array[i] = Console.ReadLine();
+    }
+    return array;
+}
+
+void PrintArray(string[] array)
+{
+    for (int i = 0; i < array.Length - 1; i++)
+    {
+        Console.Write($"{array[i]}; ");
+    }
+    Console.Write($"{array[array.Length - 1]}");
+    Console.WriteLine();
+}
