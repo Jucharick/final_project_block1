@@ -11,16 +11,19 @@
 
 Console.WriteLine("Введите длину массива:");
 int n = int.Parse(Console.ReadLine());
-string [] array = new string [n]; // {"Hello", "06569yigtog", ":-)", "Hi", "xxx", ""};
-array = FillArrayString (array);
+string[] array = new string[n];
+array = FillArrayString(array);
+Console.WriteLine("Введенный массив:");
 PrintArray(array);
+string[] threeChar = StringThreeCharFromArray(array);
+Console.WriteLine("Массив из строк, длина которых либо меньше либо равна 3 символа:");
+PrintArray(threeChar);
 
-
-string[] FillArrayString (string [] array)
+string[] FillArrayString(string[] array)
 {
     for (int i = 0; i < array.Length - 1; i++)
     {
-        Console.WriteLine($"Введите элемент № {i+1}");
+        Console.WriteLine($"Введите элемент № {i + 1}");
         array[i] = Console.ReadLine();
     }
     return array;
@@ -28,10 +31,25 @@ string[] FillArrayString (string [] array)
 
 void PrintArray(string[] array)
 {
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write($"{array[i]} ");
+    }
+    Console.WriteLine();
+}
+
+string[] StringThreeCharFromArray(string[] array)
+{
+    string[] result = new string[array.Length];
+    int length = 3;
+    int count = 0;
     for (int i = 0; i < array.Length - 1; i++)
     {
-        Console.Write($"{array[i]}; ");
+        if (array[i].Length <= length) 
+        {
+            result[count] = array[i];
+            count++;
+        }
     }
-    Console.Write($"{array[array.Length - 1]}");
-    Console.WriteLine();
+    return result;
 }
